@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Trang giới thiệu cá nhân</title>
+
+
+    <style>
+
+        /* =================================
+           CÀI ĐẶT CHUNG
+        ================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.6;
+
+            color: #17384d;
+
+            background-color: #f3f8fb;
+        }
+
+
+        /* =================================
+           THANH ĐIỀU HƯỚNG
+        ================================= */
+
+        nav {
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 30px;
+
+            padding: 15px 20px;
+
+            background-color: #082b42;
+
+            box-shadow:
+                0 3px 12px
+                rgba(0, 0, 0, 0.15);
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+
+            color: #8de8ed;
+        }
+
+
+        /* =================================
+           PHẦN GIỚI THIỆU CÁ NHÂN
+        ================================= */
+
+        .hero {
+
+            padding: 70px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #eaf8fb
+                );
+        }
+
+
+        .hero-content {
+
+            width: min(1100px, 94%);
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                250px 1fr;
+
+            gap: 45px;
+
+            align-items: center;
+        }
+
+
+        /* Avatar */
+
+        .avatar {
+
+            width: 220px;
+
+            height: 220px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #66cbd4,
+                    #0b4e70
+                );
+
+            color: white;
+
+            font-size: 65px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 10px 25px
+                rgba(8, 43, 66, 0.2);
+        }
+
+
+        .hero h1 {
+
+            margin: 0 0 10px;
+
+            font-size:
+                clamp(35px, 6vw, 60px);
+
+            line-height: 1.1;
+
+            color: #062b43;
+        }
+
+
+        .hero h2 {
+
+            margin: 0 0 20px;
+
+            font-size: 24px;
+
+            color: #176b91;
+        }
+
+
+        .hero p {
+
+            max-width: 750px;
+
+            color: #526c78;
+        }
+
+
+        /* Danh sách thông tin cá nhân */
+
+        .info-list {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin-top: 25px;
+        }
+
+
+        .info-list li {
+
+            margin-bottom: 8px;
+        }
+
+
+        .info-list strong {
+
+            color: #06344f;
+        }
+
+
+        /* =================================
+           KHU VỰC NỘI DUNG
+        ================================= */
+
+        main {
+
+            width: min(1100px, 94%);
+
+            margin: 45px auto 70px;
+        }
+
+
+        .section {
+
+            margin-bottom: 35px;
+        }
+
+
+        .card {
+
+            padding: 30px;
+
+            background-color: white;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 28px
+                rgba(8, 43, 66, 0.09);
+        }
+
+
+        .section-title {
+
+            margin-top: 0;
+
+            margin-bottom: 10px;
+
+            font-size: 32px;
+
+            color: #06344f;
+        }
+
+
+        .section-description {
+
+            margin-bottom: 28px;
+
+            color: #617680;
+        }
+
+
+        /* =================================
+           GIỚI THIỆU
+        ================================= */
+
+        .intro-text {
+
+            color: #4d6672;
+
+            text-align: justify;
+        }
+
+
+        /* =================================
+           3 SẢN PHẨM
+        ================================= */
+
+        .products {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 24px;
+        }
+
+
+        .product-card {
+
+            padding: 25px;
+
+            background-color: #f8fcfd;
+
+            border:
+                1px solid #dcecef;
+
+            border-radius: 16px;
+
+            transition: 0.3s;
+        }
+
+
+        .product-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(8, 43, 66, 0.12);
+        }
+
+
+        .product-icon {
+
+            font-size: 45px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .product-card h3 {
+
+            color: #06344f;
+        }
+
+
+        .product-card p {
+
+            color: #5a707a;
+        }
+
+
+        /* =================================
+           NÚT
+        ================================= */
+
+        .button {
+
+            display: inline-block;
+
+            padding:
+                11px 18px;
+
+            background-color: #06344f;
+
+            color: white;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .button:hover {
+
+            background-color: #0b4e70;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =================================
+           SẢN PHẨM PDF
+        ================================= */
+
+        .pdf-viewer {
+
+            width: 100%;
+
+            height: 650px;
+
+            border:
+                1px solid #d9e6eb;
+
+            border-radius: 12px;
+
+            background-color: #f8fafb;
+        }
+
+
+        .pdf-actions {
+
+            margin-top: 15px;
+        }
+
+
+        /* =================================
+           SẢN PHẨM PNG
+        ================================= */
+
+        .image-container {
+
+            text-align: center;
+        }
+
+
+        .image-container img {
+
+            width: 100%;
+
+            max-width: 768px;
+
+            height: auto;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 7px 20px
+                rgba(0, 0, 0, 0.12);
+        }
+
+
+        .caption {
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            color: #637983;
+        }
+
+
+        /* =================================
+           SẢN PHẨM VIDEO YOUTUBE
+
+           KHÔNG NHÚNG VIDEO
+           CHỈ HIỂN THỊ LINK
+        ================================= */
+
+        .youtube-box {
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background-color: #f4fafc;
+
+            border-radius: 15px;
+        }
+
+
+        .youtube-button {
+
+            display: inline-block;
+
+            padding:
+                14px 26px;
+
+            background-color: #06344f;
+
+            color: white;
+
+            border-radius: 9px;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .youtube-button:hover {
+
+            background-color: #0b4e70;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .youtube-url {
+
+            display: block;
+
+            margin-top: 16px;
+
+            color: #176b91;
+
+            text-decoration: underline;
+
+            word-break: break-all;
+        }
+
+
+        /* =================================
+           FOOTER
+        ================================= */
+
+        footer {
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background-color: #082b42;
+
+            color: white;
+        }
+
+
+        footer p {
+
+            margin: 5px 0;
+        }
+
+
+        /* =================================
+           RESPONSIVE
+        ================================= */
+
+        @media (max-width: 850px) {
+
+            .hero-content {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+
+            .hero p {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .products {
+
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                gap: 12px;
+
+                flex-wrap: wrap;
+
+                font-size: 14px;
+            }
+
+
+            .hero {
+
+                padding:
+                    45px 15px;
+            }
+
+
+            .avatar {
+
+                width: 170px;
+
+                height: 170px;
+
+                font-size: 55px;
+            }
+
+
+            .card {
+
+                padding: 20px;
+            }
+
+
+            .pdf-viewer {
+
+                height: 500px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         THANH ĐIỀU HƯỚNG
+    ========================================== -->
+
+    <nav>
+
+        <a href="#trang-chu">
+            Trang chủ
+        </a>
+
+        <a href="#gioi-thieu">
+            Giới thiệu
+        </a>
+
+        <a href="#san-pham">
+            Sản phẩm
+        </a>
+
+        <a href="#pdf">
+            PDF
+        </a>
+
+        <a href="#png">
+            PNG
+        </a>
+
+        <a href="#video">
+            Video
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================================
+         PHẦN THÔNG TIN CÁ NHÂN
+    ========================================== -->
+
+    <header
+        class="hero"
+        id="trang-chu"
+    >
+
+        <div class="hero-content">
+
+
+            <!--
+                Bạn có thể thay "AN"
+                bằng chữ viết tắt tên của mình.
+            -->
+
+            <div class="avatar">
+
+                AN
+
+            </div>
+
+
+            <div id="gioi-thieu">
+
+
+                <!-- ==============================
+                     THAY THÔNG TIN CÁ NHÂN Ở ĐÂY
+                =============================== -->
+
+                <h1>
+                    Nguyễn Văn A
+                </h1>
+
+
+                <h2>
+                    Sinh viên / Học sinh
+                </h2>
+
+
+                <p>
+
+                    Xin chào!
+
+                    Tôi là Nguyễn Văn A.
+
+                    Đây là trang web giới thiệu cá nhân
+                    và trưng bày những sản phẩm học tập
+                    mà tôi đã thực hiện trong quá trình
+                    học tập và tìm hiểu về công nghệ số.
+
+                </p>
+
+
+                <ul class="info-list">
+
+                    <li>
+
+                        <strong>
+                            Họ và tên:
+                        </strong>
+
+                        Nguyễn Văn A
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Lớp:
+                        </strong>
+
+                        ............................
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Trường:
+                        </strong>
+
+                        ............................
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Email:
+                        </strong>
+
+                        ............................
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Sở thích:
+                        </strong>
+
+                        Công nghệ, học tập và
+                        khám phá kiến thức mới
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =====================================
+             GIỚI THIỆU BẢN THÂN
+        ====================================== -->
+
+        <section
+            class="section card"
+        >
+
+            <h2 class="section-title">
+
+                Giới thiệu bản thân
+
+            </h2>
+
+
+            <p class="intro-text">
+
+                Tôi đang tìm hiểu và thực hành
+                các công cụ công nghệ để hỗ trợ
+                việc học tập và trình bày nội dung
+                trên môi trường số.
+
+            </p>
+
+
+            <p class="intro-text">
+
+                Trang web này là nơi tổng hợp
+                ba sản phẩm đã thực hiện gồm:
+                một tài liệu PDF,
+                một infographic PNG
+                và một video YouTube.
+
+            </p>
+
+
+            <p class="intro-text">
+
+                Các sản phẩm tập trung vào chủ đề
+                <strong>
+                    ứng dụng công nghệ số trong học tập
+                </strong>.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================
+             TỔNG QUAN 3 SẢN PHẨM
+        ====================================== -->
+
+        <section
+            class="section card"
+            id="san-pham"
+        >
+
+            <h2 class="section-title">
+
+                Ba sản phẩm đã thực hiện
+
+            </h2>
+
+
+            <p class="section-description">
+
+                Dưới đây là ba sản phẩm được thực hiện
+                trong quá trình học tập.
+
+                Nhấn vào nút để xem từng sản phẩm.
+
+            </p>
+
+
+            <div class="products">
+
+
+                <!-- SẢN PHẨM 1 -->
+
+                <article class="product-card">
+
+                    <div class="product-icon">
+                        📄
+                    </div>
+
+
+                    <h3>
+                        Sản phẩm 1: File PDF
+                    </h3>
+
+
+                    <p>
+
+                        Tài liệu về ứng dụng
+                        công nghệ số trong học tập.
+
+                    </p>
+
+
+                    <a
+                        class="button"
+                        href="#pdf"
+                    >
+
+                        Xem PDF
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- SẢN PHẨM 2 -->
+
+                <article class="product-card">
+
+                    <div class="product-icon">
+                        🖼️
+                    </div>
+
+
+                    <h3>
+                        Sản phẩm 2: Infographic PNG
+                    </h3>
+
+
+                    <p>
+
+                        Infographic trình bày trực quan
+                        các lợi ích của công nghệ số
+                        trong học tập.
+
+                    </p>
+
+
+                    <a
+                        class="button"
+                        href="#png"
+                    >
+
+                        Xem PNG
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- SẢN PHẨM 3 -->
+
+                <article class="product-card">
+
+                    <div class="product-icon">
+                        ▶️
+                    </div>
+
+
+                    <h3>
+                        Sản phẩm 3: Video YouTube
+                    </h3>
+
+
+                    <p>
+
+                        Video tham khảo được đăng
+                        trên YouTube.
+
+                    </p>
+
+
+                    <a
+                        class="button"
+                        href="#video"
+                    >
+
+                        Xem video
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SẢN PHẨM 1 - PDF
+        ====================================== -->
+
+        <section
+            class="section card"
+            id="pdf"
+        >
+
+            <h2 class="section-title">
+
+                📄 Sản phẩm 1 – File PDF
+
+            </h2>
+
+
+            <p class="section-description">
+
+                Tài liệu về ứng dụng công nghệ số
+                trong học tập.
+
+            </p>
+
+
+            <!--
+                File PDF phải nằm cùng thư mục
+                với file index.html.
+            -->
+
+            <iframe
+                class="pdf-viewer"
+                src="Lab05_Ex1.1.pdf"
+                title="Tài liệu PDF"
+            >
+            </iframe>
+
+
+            <div class="pdf-actions">
+
+                <a
+                    class="button"
+                    href="Lab05_Ex1.1.pdf"
+                    target="_blank"
+                >
+
+                    Mở PDF trong tab mới
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SẢN PHẨM 2 - PNG
+        ====================================== -->
+
+        <section
+            class="section card"
+            id="png"
+        >
+
+            <h2 class="section-title">
+
+                🖼️ Sản phẩm 2 – Infographic PNG
+
+            </h2>
+
+
+            <p class="section-description">
+
+                Infographic trình bày trực quan
+                các lợi ích của công nghệ số
+                trong học tập.
+
+            </p>
+
+
+            <div class="image-container">
+
+
+                <!--
+                    File PNG phải nằm cùng thư mục
+                    với index.html.
+                -->
+
+                <img
+                    src="Lab05_Ex2.1.png"
+                    alt="Infographic về lợi ích của công nghệ số trong học tập"
+                >
+
+
+                <p class="caption">
+
+                    Infographic:
+                    Lợi ích của công nghệ số
+                    trong học tập.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SẢN PHẨM 3 - VIDEO YOUTUBE
+             
+             KHÔNG NHÚNG VIDEO
+             CHỈ ĐỂ LINK
+        ====================================== -->
+
+        <section
+            class="section card"
+            id="video"
+        >
+
+            <h2 class="section-title">
+
+                ▶️ Sản phẩm 3 – Video YouTube
+
+            </h2>
+
+
+            <div class="youtube-box">
+
+
+                <p>
+
+                    Nhấp vào nút bên dưới
+                    để mở video trên YouTube.
+
+                </p>
+
+
+                <a
+                    class="youtube-button"
+                    href="https://youtu.be/f9xKR9ILOvM"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    ▶ Xem video trên YouTube
+
+                </a>
+
+
+                <a
+                    class="youtube-url"
+                    href="https://youtu.be/f9xKR9ILOvM"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    https://youtu.be/f9xKR9ILOvM
+
+                </a>
+
+
+                <p>
+
+                    Video không được tự động phát
+                    hoặc nhúng trực tiếp vào trang.
+
+                    Người xem cần nhấp vào liên kết
+                    để mở video trên YouTube.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <p>
+
+            <strong>
+                Trang giới thiệu cá nhân
+            </strong>
+
+        </p>
+
+
+        <p>
+
+            Sản phẩm học tập:
+            PDF · PNG · YouTube
+
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
